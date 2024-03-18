@@ -148,14 +148,14 @@ from sklearn.mixture import GaussianMixture
 from copy import deepcopy
 from sklearn.cluster import SpectralClustering
 
-audio, sample_rate = read_wave('test.wav')
+audio, sample_rate = read_wave('input/test.wav')
 vad = webrtcvad.Vad(2)
 frames = frame_generator(30, audio, sample_rate)
 frames = list(frames)
 segments = vad_collector(sample_rate, 30, 300, vad, frames)
 c = 0
 for i, segment in enumerate(segments):
-    path = 'chunk-%002d.wav' % (i,)
+    path = 'input/chunk-%002d.wav' % (i,)
     print(' Writing %s' % (path,))
     write_wave(path, segment, sample_rate)
     c +=1
@@ -190,8 +190,8 @@ ubm_feature = inter.T
 ubm_model = GaussianMixture(n_components = components, covariance_type = cov_type)
 ubm_model.fit(ubm_feature)
 
-print(ubm_model.score(ubm_feature))
-print(ubm_model.means_)
+print("score -------->", ubm_model.score(ubm_feature))
+print("mean ----------->", ubm_model.means_)
 
 
 def MAP_Estimation(model,data,m_iterations):
