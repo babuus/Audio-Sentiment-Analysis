@@ -38,15 +38,22 @@ This repository contains code for performing sentiment analysis on call center a
     - Finally, execute the `run_model.py` script to run sentiment analysis on the processed audio data.
     - You can customize the input file folder within the `run_model.py` script.
 
+## Motivation
+Call Centers or Support Centers in different companies aggregate huge amount of data everyday. From all the conversations, few conversations are not customer satisfactory. Finding the sentiment of the customer helps in determining whether the customer was satisfied with the service or not.
+
 ## Files:
 
 - **sentiment_classification**:
-  - This file is responsible for creating the sentiment analysis model.
+  - contains complete code on how various audio features that are extracted to train and test the model along with different architectures created to carry out the experiments.
 
 - **speaker_diarization**:
+  -  contains complete code on how various audio features that are extracted to train and test the model along with different architectures created to carry out the experiments. 
   - This file handles the speaker diarization process for call center calls:
     - Label 0: Call center representative
     - Label 1: Customer
+
+- **extract**: 
+    - is used to extract files from the RAVDESS dataset and store it together on the basis of emotions
 
 - **run_model**:
   - Use this file to run the trained sentiment analysis model on your data.
